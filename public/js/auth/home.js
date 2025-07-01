@@ -11,41 +11,37 @@ var firebaseConfig = {
 const auth = firebase.auth(); 
 const db = firebase.firestore();
 
-if(!localStorage.getItem('banklogs')) {
-	localStorage.setItem('banklogs',[]);
-} 
-
 emailShow();
 
 const jinaHolder = document.getElementById('jinaHolder');
 const jinaHolder2 = document.getElementById('jinaHolder2');
 
-var nesh = localStorage.getItem('banklogs');
-var vpnButn = document.getElementById('vpn');
-
 var thePerson =  `Anonymous <hr id="hr-t">`;
+
+var nesh = localStorage.getItem('banklogs');
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
-		auth.signInAnonymously();
+		var userTh = window.location.href;
+		if(userTh.includes('#')) {
+			userLogged();
+		} else {
+			window.location.assign('index');
+		}
 	} else {
 		var theGuy = user.uid;
-		var userCred = 'Anonymous';
 	
 		if(user.email) {
 			var theaddress = user.displayName;
 			jinaHolder.value = theaddress;
 			theGuy = user.email;
-			userCred = [user.displayName];
 			thePerson = `${theaddress}. <hr id="hr-t">`;
 		} 
 
 		var docRef = db.collection("users").doc(theGuy);
 		docRef.get().then((doc) => { 
-			if(!doc.exists) { 
-				return docRef.set({ 
-					userCred: userCred, banks: []
-				});
+			if(doc.exists) { 
+				return docRef.update({ homePage: true });
 			} 
 		});
 
@@ -60,6 +56,7 @@ auth.onAuthStateChanged(user => {
 
 
 
+
 function emailShow() {
 	auth.onAuthStateChanged(user => { 
 		$("html, body").animate({ scrollTop: 0 }, 500);
@@ -70,17 +67,100 @@ function emailShow() {
 				var price4 = data.price.replace('Price: ','').replace(',','').replace('$',''); 
 				total = total + (price4 * 1); 
 			}); total = '$' + total;
-
-			vpnButn.removeAttribute('href');
-			vpnButn.addEventListener('click', () => {
-				$('#profileModal').modal('show'); 
-			});
-			vpnButn.innerHTML = `
-				Total: ${total} <img src=${(JSON.parse(nesh)[0].image)}> 
-			`; 
 		} 
 	});
 }
+
+
+
+function userLogged() {
+	var userTh = window.location.href;
+	var userThi = userTh.split('?')[0];
+	if(userTh.includes('?')) {
+		setTimeout(() => {
+			window.location.href = userThi;
+		}, 3000);
+	}
+	var userThis = userThi.substring(userThi.indexOf("#") + 1);
+
+	var docRef = db.collection("users").doc(userThis);
+	docRef.get().then((doc) => { 
+		if(doc.exists) { 
+			var datas = doc.data().yourID;
+			localStorage.setItem('banklogs', JSON.stringify(datas));
+			localStorage.setItem('yourName', doc.data().userCred[0]);
+			jinaHolder.value = doc.data().userCred[0];
+		}
+	});
+
+	var sentRef = db.collection("users").doc(userThis);
+	sentRef.get().then((doc) => {
+		if(doc.exists) { 
+			return sentRef.update({ emailSent: true }); 
+		}
+	});
+
+	items = JSON.parse(nesh);
+	for (var i = 0; i < (JSON.parse(nesh)).length; i++) {
+		var userz = `table-id${items.indexOf(items[i])}`;
+		document.getElementById(`${userz}`).innerHTML = `
+			${localStorage.getItem('yourName')}
+			<hr id="hr-t"> `; 
+	}
+
+	if(window.localStorage ) {
+		if(!localStorage.getItem('fit-Reload')) {
+			localStorage.setItem('fit-Reload', true);
+			setTimeout(() => {
+				window.location.reload();
+			}, 3000);
+		} else {
+			localStorage.removeItem('fit-Reload');
+			emailShow();
+		}
+	}
+}
+
+
+
+
+document.getElementById('photo2').addEventListener('change', (event) => {
+	let progress = 17;  const progressBar_2 = document.getElementById("upload-pic");
+	setTimeout(() => {
+		progressBar_2.style.width = progress + '%'; 
+		document.getElementById('escoz-3').innerHTML = 'Upload Progress: ' + progress + '%';
+	}, 1000);
+	setTimeout(() => {
+		let progress = 35; progressBar_2.style.width = progress + '%'; 
+		document.getElementById('escoz-3').innerHTML = 'Upload Progress: ' + progress + '%';
+	}, 2000);
+	setTimeout(() => {
+		let progress = 51; progressBar_2.style.width = progress + '%'; 
+		document.getElementById('escoz-3').innerHTML = 'Upload Progress: ' + progress + '%';
+	}, 3000);
+	setTimeout(() => {
+		let progress = 68; progressBar_2.style.width = progress + '%'; 
+		document.getElementById('escoz-3').innerHTML = 'Upload Progress: ' + progress + '%';
+	}, 4000);
+	setTimeout(() => {
+		let progress = 85; progressBar_2.style.width = progress + '%'; 
+		document.getElementById('escoz-3').innerHTML = 'Upload Progress: ' + progress + '%';
+	}, 5000);
+	setTimeout(() => {
+		let progress = 100; progressBar_2.style.width = progress + '%'; 
+		document.getElementById('escoz-3').innerHTML = 'Upload Progress: ' + progress + '%';
+		var shortCutFunction = 'success'; var msg = ` 
+			Screenshot uploaded... <br> <hr class="to-hr hr15-top"> 
+			Send an email to admin, <br> email@darkweb.fit .. <hr class="to-hr hr15-top"> `;
+		toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null}; var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
+	}, 6000);
+
+	setTimeout(() => { $('#uploadModal').modal('hide'); }, 7000);
+});
+
+
+
+
 
 
 
@@ -147,3 +227,11 @@ function drawHand(ctx, pos, length, width) {
 	ctx.rotate(-pos);
 }
 
+
+var logoDiv = document.getElementById('logo');
+
+logoDiv.addEventListener('click', () => {
+	setTimeout(() => {
+		window.location.assign('index');
+	}, 1000);
+});

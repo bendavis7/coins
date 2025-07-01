@@ -1,5 +1,5 @@
 #invoice-div {
-  margin-top: 1vh;
+  margin-top: 2vh;
   z-index: 1 !important;
 }
 
@@ -49,9 +49,9 @@
 }
 @media (min-width: 1072px) {
   #invoice-div.col-lg-4 {
-    -ms-flex: 0 0 28%;
-    flex: 0 0 28%;
-    max-width: 28%;
+    -ms-flex: 0 0 29%;
+    flex: 0 0 29%;
+    max-width: 29%;
   }
 }
 @media (max-width: 571px)  {
@@ -85,9 +85,9 @@
   padding: 0px !important;
 
   display: flex !important;
-  width: 94% !important;
+  width: 90% !important;
   height: 64px !important;
-  margin: 20px auto !important;
+  margin: 9px auto !important;
 }
 
 

@@ -1395,7 +1395,7 @@ td {
     word-spacing: 4px !important;
   }
   .thegold {
-    padding: 28px 14px !important;
+    padding: 22px 11px !important;
   }
 }
 @media (max-width: 1092px) {
@@ -1431,7 +1431,7 @@ td {
     letter-spacing: 1.4px !important;
   }
   .thegold {
-    padding: 28px 14px !important;
+    padding: 24px 12px !important;
   }
 }
 @media (max-width: 792px) {
@@ -1461,7 +1461,7 @@ td {
     word-spacing: 4px !important;
   }
   .thegold {
-    padding: 28px 14px !important;
+    padding: 23px 11.5px !important;
   }
 }
 @media (max-width: 390px) {
@@ -1480,7 +1480,7 @@ td {
     letter-spacing: 1px !important;
   }
   .thegold {
-  padding: 26px 13px !important;
+  padding: 22px 11px !important;
   }
 }
 
@@ -2988,9 +2988,9 @@ span#uida {
 
 .butn.money {
   font-weight: 700;
-  font-size: 28px !important;
+  font-size: 26px !important;
   margin: 10px 18px !important;
-  padding: 15px 13px !important;
+  padding: 14px 13px !important;
   letter-spacing: 1.5px !important;
   color: #121d33;
   border-width: 1.6px !important;
@@ -3007,7 +3007,7 @@ span#uida {
 @media screen and (max-width: 570px) {
   .butn.money {
     font-weight: 700;
-    font-size: 25px !important;
+    font-size: 24px !important;
     margin: 10px 15px !important;
     padding: 13px 12px !important;
     letter-spacing: 1.8px !important;
