@@ -78,14 +78,7 @@ function emailShow() {
 			vpnButn.innerHTML = `
 				Total: ${total} <img src=${(JSON.parse(nesh)[0].image)}> 
 			`; 
-		} else {
-			if(user.email) {
-				vpnButn.innerHTML = `
-					Bank Log <img src="img/partners/ticket.png">
-				`;
-				vpnButn.setAttribute('href', 'email');
-			} 
-		}
+		} 
 	});
 }
 

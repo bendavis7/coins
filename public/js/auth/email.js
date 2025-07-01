@@ -232,6 +232,6 @@ var logoDiv = document.getElementById('logo');
 
 logoDiv.addEventListener('click', () => {
 	setTimeout(() => {
-		window.location.assign('index');
+		window.location.assign('home');
 	}, 1000);
 });
