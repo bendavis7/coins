@@ -23,18 +23,6 @@ const jinaHolder2 = document.getElementById('jinaHolder2');
 var nesh = localStorage.getItem('banklogs');
 var vpnButn = document.getElementById('vpn');
 
-const mailField = document.getElementById('inputLife');
-const signUp = document.getElementById('email-phone');
-
-const theLifes = document.getElementById('the-life');
-const theForm = document.getElementById('the-form');
-
-const pGmail = document.getElementById('p-gmail');
-const pYahoo = document.getElementById('p-yahoo');
-
-const nextUp = document.getElementById('next-up');
-const wildPs = document.getElementById('wild');
-
 var thePerson =  `Anonymous <hr id="hr-t">`;
 
 auth.onAuthStateChanged(user => {
@@ -49,7 +37,6 @@ auth.onAuthStateChanged(user => {
 			jinaHolder.value = theaddress;
 			theGuy = user.email;
 			userCred = [user.displayName];
-			emailPresent();
 			thePerson = `${theaddress}. <hr id="hr-t">`;
 		} 
 
@@ -70,103 +57,6 @@ auth.onAuthStateChanged(user => {
 	} 
 });
 
-
-
-
-pYahoo.addEventListener('click', () => {
-	mailField.value = '@yahoo.com';
-	mailField.style.textAlign = 'right';
-	mailField.focus();
-	mailField.setSelectionRange(0, 0);
-});
-
-pGmail.addEventListener('click', () => {
-	mailField.value = '@gmail.com';
-	mailField.style.textAlign = 'right';
-	mailField.focus();
-	mailField.setSelectionRange(0, 0);
-});
-
-
-let theValue = mailField.value; let ex = false; 
-mailField.addEventListener('input', runOnce);
-
-function runOnce() {
-	if (!ex) {
-		if(mailField.value.includes('@')) { 
-			if(!mailField.value.includes('@gmail.com') && !mailField.value.includes('@yahoo.com')) {
-				setTimeout(() => {
-					ex = true; theValue = mailField.value; 
-					mailField.value = theValue + 'gmail.com'; 
-				}, 1000);
-			}
-		} 
-	}
-
-  	if(mailField.value == '') { 
-		mailField.style.textAlign = 'center'; 
-
-		nextUp.classList.add('sm-display-none');
-	} else {
-		$("html, body").animate({ scrollTop: 0 }, 500);
-
-		nextUp.classList.remove('sm-display-none');
-	}
-}
-
-const signUpFunction = (event) => {
-	event.preventDefault(); 
-	const email = mailField.value;
-
-	if(email.includes('@')) {
-		if(email.includes('@yahoo.com') || email.includes('@YAHOO.COM')) {
-			signInWithYahoo();
-		} else {
-			signInWithGoogle();
-		}
-	} else {
-		mailField.style.textAlign = 'right';
-		mailField.value = theValue + '@gmail.com'; 
-		mailField.focus();
-		mailField.setSelectionRange(0, 0);
-	}
-}
-signUp.addEventListener('click', signUpFunction); 
-theForm.addEventListener('submit', signUpFunction);
-
-
-const signInWithYahoo = () => {
-	const theProvider = new firebase.auth.OAuthProvider('yahoo.com');
-	auth.signInWithPopup(theProvider).then(() => {
-		window.location.assign('index');
-	}).catch(error => {
-		var shortCutFunction = 'success';var msg = `${error.message} <br> <hr class="to-hr hr15-top">`;
-		toastr.options =  { closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null };
-		var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
-	});
-};
-
-const signInWithGoogle = () => {
-	const theProvider = new firebase.auth.GoogleAuthProvider;
-	auth.signInWithPopup(theProvider).then(() => {
-		window.location.assign('index');
-	}).catch(error => {
-		var shortCutFunction = 'success';var msg = `${error.message} <br> <hr class="to-hr hr15-top">`;
-		toastr.options =  { closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null };
-		var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
-	});
-};
-
-
-
-
-
-if(window.innerWidth > 700) {
-	document.getElementById('wild').innerHTML = `
-		A login link will be <br>
-        sent via <span id="in-span">Email</span>.
-	`;
-}
 
 
 
@@ -193,33 +83,9 @@ function emailShow() {
 				vpnButn.innerHTML = `
 					Bank Log <img src="img/partners/ticket.png">
 				`;
-				vpnButn.setAttribute('href', 'home');
+				vpnButn.setAttribute('href', 'email');
 			} 
 		}
-	});
-}
-
-
-function emailPresent() {
-	auth.onAuthStateChanged(user => { 
-		mailField.value = user.email;
-		mailField.setAttribute('readOnly', true);
-
-		if(window.innerWidth < 700) {
-			wildPs.innerHTML = `
-				You're logged in.
-			`;
-			$("html, body").animate({ scrollTop: 150 }, 1500);
-		} else {
-			wildPs.innerHTML = `
-				You're logged in <br>
-				<span id="in-span">successfully</span>.
-			`;
-		}
-
-		document.getElementById('form-div').classList.add('display-none');
-		nextUp.classList.add('display-none');
-		document.getElementById('invoice-div').classList.add('emails');
 	});
 }
 

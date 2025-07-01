@@ -1395,7 +1395,7 @@ td {
     word-spacing: 4px !important;
   }
   .thegold {
-    padding: 22px 11px !important;
+    padding: 28px 14px !important;
   }
 }
 @media (max-width: 1092px) {
@@ -1431,7 +1431,7 @@ td {
     letter-spacing: 1.4px !important;
   }
   .thegold {
-    padding: 24px 12px !important;
+    padding: 28px 14px !important;
   }
 }
 @media (max-width: 792px) {
@@ -1461,7 +1461,7 @@ td {
     word-spacing: 4px !important;
   }
   .thegold {
-    padding: 23px 11.5px !important;
+    padding: 28px 14px !important;
   }
 }
 @media (max-width: 390px) {
@@ -1480,7 +1480,7 @@ td {
     letter-spacing: 1px !important;
   }
   .thegold {
-  padding: 22px 11px !important;
+  padding: 26px 13px !important;
   }
 }
 

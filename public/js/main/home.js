@@ -8,10 +8,8 @@
         var scroll = $window.scrollTop();
         if (scroll <= 50) {
             $("header").removeClass("scrollHeader").addClass("fixedHeader");
-            $("header").addClass("sm-display-none");
         } else {
             $("header").removeClass("fixedHeader").addClass("scrollHeader");
-            $("header").removeClass("sm-display-none");
         }
     });
     $window.on('scroll', function() {
@@ -48,7 +46,7 @@
             autoplayTimeout: 3000, autoplaySpeed: 15000,
             responsive: {
                 0: {items: 1, margin: 10}, 
-                768: {items: 1.5, margin: 10}, 
+                768: {items: 1, margin: 10}, 
             }
         });
         

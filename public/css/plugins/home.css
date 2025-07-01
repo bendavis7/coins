@@ -1,6 +1,6 @@
 #chart-cols {   
   padding: 20px auto !important;
-  margin-bottom: -15px !important;
+  margin-bottom: -10px !important;
 }
 
 @media screen and (max-width: 1026px) {
@@ -109,18 +109,6 @@ td.burro {
 
 
 
-
-
-
-
-#section-one {
-  margin-top: -10px !important;
-}
-@media screen and (max-width: 1026px) {
-  #section-one {
-    margin-top: -40px !important;
-  }
-}
 
 
 #section-key {
