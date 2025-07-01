@@ -1,0 +1,136 @@
+#chart-cols {   
+  padding: 20px auto !important;
+  margin-bottom: -15px !important;
+}
+
+@media screen and (max-width: 1026px) {
+  .col-12 {
+    margin-bottom: 20px;
+  }
+  .col-sm-6 {
+    margin-bottom: 4px !important;
+  }
+}
+.therow {
+  margin: 5px -0;
+}
+
+#modalsend .brock {
+  background: rgba(18, 29, 51, 0.5) !important;
+}
+
+div.col-lg-6,
+div.col-lg-3,
+div.col-lg-8,
+div.col-lg-35,
+div.col-12,
+div.col-lg-2 {
+  z-index: 1 !important;
+}
+
+.therow.owl-carousel.owl-theme {
+  margin-bottom: 0px !important;
+}
+.owl-dots {
+  margin-top: 10px !important;
+}
+
+
+
+
+.vpn-section .butn#vpn {
+  margin: 50px auto 50px !important;
+  cursor: pointer;
+  border: 2px solid rgb(18, 29, 51, 0.7) !important;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.7) !important;
+
+  padding: 18px 16px !important;
+  font-size: 30px !important;
+}
+
+@media screen and (max-width: 767px) {
+  .vpn-section .butn#vpn {
+    margin: 50px auto 120px !important;
+    padding: 17px 15px !important;
+    font-size: 29px !important;
+  }
+}
+
+
+
+@media (min-width: 1072px) {
+  .col-lg-5-j {
+    -ms-flex: 0 0 39.667%;
+    flex: 0 0 39.667%;
+    max-width: 39.667%;
+  }
+
+  .col-lg-3-j {
+    -ms-flex: 0 0 27%;
+    flex: 0 0 27%;
+    max-width: 27%;
+  }
+}
+
+
+
+
+
+
+
+
+.fa-sync-alt {
+  margin-left: 5px !important;
+}
+#example tr td img {
+  width: 54px !important;
+  border-radius: 3px;
+}
+  
+td.burro {
+  filter: blur(5px) !important;
+}
+
+#table-id0, 
+#table-id1 {
+  text-transform: capitalize !important;
+  white-space: nowrap !important;
+}
+
+#example tbody td:nth-child(2) hr {
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
+  opacity: 0.5 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+#section-one {
+  margin-top: -10px !important;
+}
+@media screen and (max-width: 1026px) {
+  #section-one {
+    margin-top: -40px !important;
+  }
+}
+
+
+#section-key {
+  margin-top: 20px !important;
+  margin-bottom: -20px !important;
+  opacity: 0.6 !important;
+}
+
+#section-koy {
+  margin-top: 15px !important;
+  margin-bottom: -10px !important;
+  opacity: 0.6 !important;
+}
