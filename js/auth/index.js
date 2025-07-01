@@ -179,7 +179,7 @@ function emailShow() {
 				if(window.innerWidth < 590) {
 					clearInterval(interval);
 					setTimeout(() => {
-						$("html, body").animate({ scrollTop: 80 },  1500);
+						$("html, body").animate({ scrollTop: 51 },  1500);
 					}, 1500);
 				}
 			}    
@@ -214,7 +214,6 @@ function emailPresent() {
 			wildPs.innerHTML = `
 				You're logged in.
 			`;
-			$("html, body").animate({ scrollTop: 150 }, 1500);
 		} else {
 			wildPs.innerHTML = `
 				You're logged in <br>
