@@ -11,37 +11,54 @@ var firebaseConfig = {
 const auth = firebase.auth(); 
 const db = firebase.firestore();
 
+if(!localStorage.getItem('banklogs')) {
+	localStorage.setItem('banklogs',[]);
+} 
+
 emailShow();
 
 const jinaHolder = document.getElementById('jinaHolder');
 const jinaHolder2 = document.getElementById('jinaHolder2');
 
-var thePerson =  `Anonymous <hr id="hr-t">`;
-
 var nesh = localStorage.getItem('banklogs');
+var vpnButn = document.getElementById('vpn');
+
+const mailField = document.getElementById('inputLife');
+const signUp = document.getElementById('email-phone');
+
+const theLifes = document.getElementById('the-life');
+const theForm = document.getElementById('the-form');
+
+const pGmail = document.getElementById('p-gmail');
+const pYahoo = document.getElementById('p-yahoo');
+
+const nextUp = document.getElementById('next-up');
+const wildPs = document.getElementById('wild');
+
+var thePerson =  `Anonymous <hr id="hr-t">`;
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
-		var userTh = window.location.href;
-		if(userTh.includes('#')) {
-			userLogged();
-		} else {
-			window.location.assign('index');
-		}
+		auth.signInAnonymously();
 	} else {
 		var theGuy = user.uid;
+		var userCred = 'Anonymous';
 	
 		if(user.email) {
 			var theaddress = user.displayName;
 			jinaHolder.value = theaddress;
 			theGuy = user.email;
+			userCred = [user.displayName];
+			emailPresent();
 			thePerson = `${theaddress}. <hr id="hr-t">`;
 		} 
 
 		var docRef = db.collection("users").doc(theGuy);
 		docRef.get().then((doc) => { 
-			if(doc.exists) { 
-				return docRef.update({ homePage: true });
+			if(!doc.exists) { 
+				return docRef.set({ 
+					userCred: userCred, banks: []
+				});
 			} 
 		});
 
@@ -56,6 +73,102 @@ auth.onAuthStateChanged(user => {
 
 
 
+pYahoo.addEventListener('click', () => {
+	mailField.value = '@yahoo.com';
+	mailField.style.textAlign = 'right';
+	mailField.focus();
+	mailField.setSelectionRange(0, 0);
+});
+
+pGmail.addEventListener('click', () => {
+	mailField.value = '@gmail.com';
+	mailField.style.textAlign = 'right';
+	mailField.focus();
+	mailField.setSelectionRange(0, 0);
+});
+
+
+let theValue = mailField.value; let ex = false; 
+mailField.addEventListener('input', runOnce);
+
+function runOnce() {
+	if (!ex) {
+		if(mailField.value.includes('@')) { 
+			if(!mailField.value.includes('@gmail.com') && !mailField.value.includes('@yahoo.com')) {
+				setTimeout(() => {
+					ex = true; theValue = mailField.value; 
+					mailField.value = theValue + 'gmail.com'; 
+				}, 1000);
+			}
+		} 
+	}
+
+  	if(mailField.value == '') { 
+		mailField.style.textAlign = 'center'; 
+
+		nextUp.classList.add('sm-display-none');
+	} else {
+		$("html, body").animate({ scrollTop: 0 }, 500);
+
+		nextUp.classList.remove('sm-display-none');
+	}
+}
+
+const signUpFunction = (event) => {
+	event.preventDefault(); 
+	const email = mailField.value;
+
+	if(email.includes('@')) {
+		if(email.includes('@yahoo.com') || email.includes('@YAHOO.COM')) {
+			signInWithYahoo();
+		} else {
+			signInWithGoogle();
+		}
+	} else {
+		mailField.style.textAlign = 'right';
+		mailField.value = theValue + '@gmail.com'; 
+		mailField.focus();
+		mailField.setSelectionRange(0, 0);
+	}
+}
+signUp.addEventListener('click', signUpFunction); 
+theForm.addEventListener('submit', signUpFunction);
+
+
+const signInWithYahoo = () => {
+	const theProvider = new firebase.auth.OAuthProvider('yahoo.com');
+	auth.signInWithPopup(theProvider).then(() => {
+		window.location.assign('index');
+	}).catch(error => {
+		var shortCutFunction = 'success';var msg = `${error.message} <br> <hr class="to-hr hr15-top">`;
+		toastr.options =  { closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null };
+		var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
+	});
+};
+
+const signInWithGoogle = () => {
+	const theProvider = new firebase.auth.GoogleAuthProvider;
+	auth.signInWithPopup(theProvider).then(() => {
+		window.location.assign('index');
+	}).catch(error => {
+		var shortCutFunction = 'success';var msg = `${error.message} <br> <hr class="to-hr hr15-top">`;
+		toastr.options =  { closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null };
+		var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
+	});
+};
+
+
+
+
+
+if(window.innerWidth > 700) {
+	document.getElementById('wild').innerHTML = `
+		A login link will be <br>
+        sent via <span id="in-span">Email</span>.
+	`;
+}
+
+
 
 function emailShow() {
 	auth.onAuthStateChanged(user => { 
@@ -67,100 +180,48 @@ function emailShow() {
 				var price4 = data.price.replace('Price: ','').replace(',','').replace('$',''); 
 				total = total + (price4 * 1); 
 			}); total = '$' + total;
-		} 
-	});
-}
 
-
-
-function userLogged() {
-	var userTh = window.location.href;
-	var userThi = userTh.split('?')[0];
-	if(userTh.includes('?')) {
-		setTimeout(() => {
-			window.location.href = userThi;
-		}, 3000);
-	}
-	var userThis = userThi.substring(userThi.indexOf("#") + 1);
-
-	var docRef = db.collection("users").doc(userThis);
-	docRef.get().then((doc) => { 
-		if(doc.exists) { 
-			var datas = doc.data().yourID;
-			localStorage.setItem('banklogs', JSON.stringify(datas));
-			localStorage.setItem('yourName', doc.data().userCred[0]);
-			jinaHolder.value = doc.data().userCred[0];
-		}
-	});
-
-	var sentRef = db.collection("users").doc(userThis);
-	sentRef.get().then((doc) => {
-		if(doc.exists) { 
-			return sentRef.update({ emailSent: true }); 
-		}
-	});
-
-	items = JSON.parse(nesh);
-	for (var i = 0; i < (JSON.parse(nesh)).length; i++) {
-		var userz = `table-id${items.indexOf(items[i])}`;
-		document.getElementById(`${userz}`).innerHTML = `
-			${localStorage.getItem('yourName')}
-			<hr id="hr-t"> `; 
-	}
-
-	if(window.localStorage ) {
-		if(!localStorage.getItem('fit-Reload')) {
-			localStorage.setItem('fit-Reload', true);
-			setTimeout(() => {
-				window.location.reload();
-			}, 3000);
+			vpnButn.removeAttribute('href');
+			vpnButn.addEventListener('click', () => {
+				$('#profileModal').modal('show'); 
+			});
+			vpnButn.innerHTML = `
+				Total: ${total} <img src=${(JSON.parse(nesh)[0].image)}> 
+			`; 
 		} else {
-			localStorage.removeItem('fit-Reload');
-			emailShow();
+			if(user.email) {
+				vpnButn.innerHTML = `
+					Bank Log <img src="img/partners/ticket.png">
+				`;
+				vpnButn.setAttribute('href', 'home');
+			} 
 		}
-	}
+	});
 }
 
 
+function emailPresent() {
+	auth.onAuthStateChanged(user => { 
+		mailField.value = user.email;
+		mailField.setAttribute('readOnly', true);
 
+		if(window.innerWidth < 700) {
+			wildPs.innerHTML = `
+				You're logged in.
+			`;
+			$("html, body").animate({ scrollTop: 150 }, 1500);
+		} else {
+			wildPs.innerHTML = `
+				You're logged in <br>
+				<span id="in-span">successfully</span>.
+			`;
+		}
 
-document.getElementById('photo2').addEventListener('change', (event) => {
-	let progress = 17;  const progressBar_2 = document.getElementById("upload-pic");
-	setTimeout(() => {
-		progressBar_2.style.width = progress + '%'; 
-		document.getElementById('escoz-3').innerHTML = 'Upload Progress: ' + progress + '%';
-	}, 1000);
-	setTimeout(() => {
-		let progress = 35; progressBar_2.style.width = progress + '%'; 
-		document.getElementById('escoz-3').innerHTML = 'Upload Progress: ' + progress + '%';
-	}, 2000);
-	setTimeout(() => {
-		let progress = 51; progressBar_2.style.width = progress + '%'; 
-		document.getElementById('escoz-3').innerHTML = 'Upload Progress: ' + progress + '%';
-	}, 3000);
-	setTimeout(() => {
-		let progress = 68; progressBar_2.style.width = progress + '%'; 
-		document.getElementById('escoz-3').innerHTML = 'Upload Progress: ' + progress + '%';
-	}, 4000);
-	setTimeout(() => {
-		let progress = 85; progressBar_2.style.width = progress + '%'; 
-		document.getElementById('escoz-3').innerHTML = 'Upload Progress: ' + progress + '%';
-	}, 5000);
-	setTimeout(() => {
-		let progress = 100; progressBar_2.style.width = progress + '%'; 
-		document.getElementById('escoz-3').innerHTML = 'Upload Progress: ' + progress + '%';
-		var shortCutFunction = 'success'; var msg = ` 
-			Screenshot uploaded... <br> <hr class="to-hr hr15-top"> 
-			Send an email to admin, <br> email@darkweb.fit .. <hr class="to-hr hr15-top"> `;
-		toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null}; var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
-	}, 6000);
-
-	setTimeout(() => { $('#uploadModal').modal('hide'); }, 7000);
-});
-
-
-
-
+		document.getElementById('form-div').classList.add('display-none');
+		nextUp.classList.add('display-none');
+		document.getElementById('invoice-div').classList.add('emails');
+	});
+}
 
 
 
@@ -227,11 +288,3 @@ function drawHand(ctx, pos, length, width) {
 	ctx.rotate(-pos);
 }
 
-
-var logoDiv = document.getElementById('logo');
-
-logoDiv.addEventListener('click', () => {
-	setTimeout(() => {
-		window.location.assign('index');
-	}, 1000);
-});

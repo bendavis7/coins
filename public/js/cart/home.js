@@ -103,11 +103,9 @@ if(localStorage.getItem('banklogs')) {
         document.getElementById('last-alert').classList.add('display-none');
     } else {
         cartLen.style.display = 'none'; 
-        document.getElementById('ach-carousel').classList.remove('display-none');
     }
 } else {
     cartLen.style.display = 'none'; 
-    document.getElementById('ach-carousel').classList.remove('display-none');
 }
 
 
@@ -156,13 +154,6 @@ for(j=0; j< jobs.length; j++) {
     var thePr = parseFloat((thePrize.replace("$", "").replace(",", "") / 47).toFixed(0)).toLocaleString();
     theJob.innerHTML = '$'+ thePr;
 }
-
-
-
-
-
-
-
 
 
 
@@ -247,30 +238,7 @@ function updateCartTotal() {
     if(bankLog.includes('America') || bankLog.includes('Barclays')) {
         document.getElementById('th-id').innerHTML = 'AccountID';
     } 
-    
 
-
-    if(bankLog.includes('Chime')) {
-        document.getElementById('chime-carousel').classList.remove('display-none');
-    } else if(bankLog.includes('Wells')) {
-        document.getElementById('wells-carousel').classList.remove('display-none');
-    } else if(bankLog.includes('Chase') || bankLog.includes('BBVA') || bankLog.includes('Scotia') || bankLog.includes('TD') || bankLog.includes('Truist')) {
-        document.getElementById('ach-carousel').classList.remove('display-none');
-    } else if(bankLog.includes('Huntington')) {
-        document.getElementById('hunt-carousel').classList.remove('display-none');
-    } else if(bankLog.includes('Woodforest')) {
-        document.getElementById('wood-carousel').classList.remove('display-none');
-    } else if(bankLog.includes('Navy')) {
-        document.getElementById('navy-carousel').classList.remove('display-none');
-    } else if(bankLog.includes('America')) {
-        document.getElementById('boa-carousel').classList.remove('display-none');
-    } else if(bankLog.includes('Citi')) {
-        document.getElementById('wire-carousel').classList.remove('display-none');
-    } else if(bankLog.includes('RBC')) {
-        document.getElementById('paypal-carousel').classList.remove('display-none');
-    } else if(bankLog.includes('Barclays') || bankLog.includes('M&T') || bankLog.includes('PNC')) {
-        document.getElementById('coin-carousel').classList.remove('display-none');
-    }
 
 
     var id = setInterval(frame, 1000);

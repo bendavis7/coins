@@ -1,0 +1,194 @@
+#invoice-div {
+  margin-top: 1.5vh;
+  z-index: 1 !important;
+}
+#invoice-div.emails {
+  margin-top: 10vh;
+  z-index: 1 !important;
+}
+
+@media screen and (max-width: 770px) {
+  #invoice-div.emails,
+  #invoice-div {
+    margin-top: -8.5vh;
+  }
+}
+
+#invoice-div p {
+  margin: 7px auto !important;
+  font-size: 22.5px !important;
+  line-height: 55px !important;
+}
+
+#invoice-div p span {
+  font-weight: 600;
+}
+p#p-gmail, p#p-yahoo {
+  font-size: 21.5px !important;
+}
+
+@media screen and (max-width: 874px) {
+  #invoice-div p {
+    margin: 10px auto !important;
+    font-size: 28px !important;
+    line-height: 80px !important;
+  }
+}
+@media screen and (max-width: 574px) {
+  #invoice-div p {
+    margin: -3px auto 7px !important;
+    font-size: 23.5px !important;
+    line-height: 60px !important;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #invoice-div p {
+    font-size: 23px !important;
+    line-height: 57px !important;
+  }
+}
+
+
+@media (min-width: 572px) {
+  #invoice-div.col-md-7 {
+    -ms-flex: 0 0 64%;
+    flex: 0 0 64%;
+    max-width: 64%;
+  }
+}
+@media (min-width: 1072px) {
+  #invoice-div.col-lg-4 {
+    -ms-flex: 0 0 28.5%;
+    flex: 0 0 28.5%;
+    max-width: 28.5%;
+  }
+}
+@media (max-width: 571px)  {
+  #invoice-div.col-12 {
+    -ms-flex:0 0 88%;
+    flex:0 0 88%;
+    max-width: 88%;
+  }  
+}
+@media (max-width: 400px)  {
+  #invoice-div.col-12 {
+    -ms-flex:0 0 92%;
+    flex:0 0 92%;
+    max-width: 92%;
+  }  
+}
+
+.nohr {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+#inputLife::placeholder {
+  letter-spacing: 1.2px !important;
+}
+
+#the-life {
+  border-radius: 0px !important;
+  text-align: center;
+  align-items: center !important;
+  padding: 0px !important;
+
+  display: flex !important;
+  width: 95% !important;
+  height: 65px !important;
+  margin: 15px auto !important;
+}
+
+
+#inputLife {
+  color:  rgb(31, 67, 87) !important;
+  border-radius: 0.1px !important;
+  font-weight: 600 !important;
+  font-size: 24px !important;
+  text-align: center;
+  align-items: center !important;
+
+  padding: 0 8px !important;
+  height: 100% !important;
+  width: 100% !important;
+
+  letter-spacing: 1.5px !important;
+
+  box-shadow: none !important;
+  background: transparent !important;
+  border: none !important;
+}
+@media screen and (max-width: 767px) {
+  #inputLife {
+    font-size: 23.5px !important;
+    letter-spacing: 1.2px !important;
+  }
+
+  #the-life {
+    width: 94% !important;
+    height: 64px !important;
+    margin: 5px auto !important;
+  }
+}  
+@media screen and (max-width: 400px) {
+  #inputLife {
+    font-size: 23px !important;
+  }
+  #the-life {
+    width: 95% !important;
+    height: 62px !important;
+    margin: 1px auto !important;
+  }
+}
+
+#email-phone {
+  margin-top: 21px !important;
+  margin-bottom: 7px !important;
+  cursor: pointer !important;
+  border-radius: 0.5px !important;
+  padding: 10px 12px !important;
+  font-size: 24px !important;
+  letter-spacing: 1.6px !important;
+  border: 2px solid rgb(18, 29, 51, 0.7) !important;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.7) !important;
+}
+#email-phone img {
+  border-radius: 0 !important;
+  height: 31px !important;
+  width: 31px !important;
+}
+
+#section-out {
+  margin-top: 25px !important;
+  opacity: 0.6 !important;
+}
+
+@media screen and (max-width: 867px) {
+  #section-out {
+    margin: 15px auto -15px !important;
+  }
+  #email-phone {
+    margin-top: 20px !important;
+    margin-bottom: 1px !important;
+  }
+}
+
+#form-div {
+  display: flex !important;
+  margin-top: -5px !important;
+  margin-bottom: -5px !important;
+  cursor: pointer !important;
+}
+#form-div.display-none {
+    display: none !important;
+}
+
+@media screen and (max-width: 867px) {
+  #form-div {
+    display: none !important;
+  }
+  hr#hr {
+    margin-bottom: -5px !important;
+  }
+}
