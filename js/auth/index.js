@@ -173,18 +173,6 @@ if(window.innerWidth > 700) {
 function emailShow() {
 	auth.onAuthStateChanged(user => { 
 		$("html, body").animate({ scrollTop: 0 }, 500);
-
-		var interval = setInterval(function() {
-			if(document.readyState === 'complete') {
-				if(window.innerWidth < 590) {
-					clearInterval(interval);
-					setTimeout(() => {
-						$("html, body").animate({ scrollTop: 51 },  1500);
-					}, 1500);
-				}
-			}    
-		}, 100);
-
 		
 		if(nesh && (JSON.parse(nesh).length) > 0) {
 			let items3 = (JSON.parse(nesh)); var total = 0;
@@ -214,6 +202,7 @@ function emailPresent() {
 			wildPs.innerHTML = `
 				You're logged in.
 			`;
+			$("html, body").animate({ scrollTop: 150 },  1500);
 		} else {
 			wildPs.innerHTML = `
 				You're logged in <br>
