@@ -183,7 +183,7 @@ function emailShow() {
 				clearInterval(interval);
 				setTimeout(() => {
 					$("html, body").animate({ scrollTop: data1 },  1200);
-				}, 1200);
+				}, 2000);
 			}    
 		}, 100);
 	});

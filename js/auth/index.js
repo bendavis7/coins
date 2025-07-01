@@ -174,6 +174,17 @@ function emailShow() {
 	auth.onAuthStateChanged(user => { 
 		$("html, body").animate({ scrollTop: 0 }, 500);
 
+		if(window.innerWidth < 500) {
+			var interval = setInterval(function() {
+				if(document.readyState === 'complete') {
+					clearInterval(interval);
+					setTimeout(() => {
+						$("html, body").animate({ scrollTop: 200 },  1200);
+					}, 2000);
+				}    
+			}, 100);
+		}
+
 		if(nesh && (JSON.parse(nesh).length) > 0) {
 			let items3 = (JSON.parse(nesh)); var total = 0;
 			items3.map(data=>{ 

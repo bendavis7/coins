@@ -206,11 +206,7 @@ function startFunction() {
 
 const anonFunction = () => {
 	auth.onAuthStateChanged(user => { 
-		setTimeout(() => {
-			var shortCutFunction = 'success'; var msg = `Use a burner email <br> address to checkout .. <hr class="to-hr hr15-bot">`; 
-			toastr.options =  {closeButton: true, debug: false, newestOnTop: true, timeOut: 4000,progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null}; var $toast = toastr[shortCutFunction](msg);$toastlast = $toast; 
-		}, 1000);
-
+		
 		setTimeout(() => {
 			logSection2.classList.add('display-none');
 			logSection.classList.add('display-none');
@@ -219,7 +215,7 @@ const anonFunction = () => {
 				weldPar.innerHTML = `
 					Use a <span id="in-span">burner Email ..</span>`;
 			}
-		}, 5000);
+		}, 2000);
 	});
 }
 
