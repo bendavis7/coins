@@ -179,8 +179,8 @@ function emailShow() {
 				if(document.readyState === 'complete') {
 					clearInterval(interval);
 					setTimeout(() => {
-						$("html, body").animate({ scrollTop: 200 },  1200);
-					}, 2000);
+						$("html, body").animate({ scrollTop: 150 },  1500);
+					}, 1500);
 				}    
 			}, 100);
 		}

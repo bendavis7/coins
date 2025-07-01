@@ -238,7 +238,6 @@ function updateCartTotal() {
 
 
     if((JSON.parse(localStorage.getItem('banklogs')).length) > 1) {
-        document.getElementById('invoice-div').classList.add('display-none');
         document.getElementsByClassName('modal-header')[1].classList.add('lg-display-none');
         document.getElementById('chart-div').classList.add('sm-display-none');
         document.getElementById('flex-one').classList.add('sm-display-none');

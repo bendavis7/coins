@@ -3282,3 +3282,92 @@ hr#hr {
 #voice-body-div p {
   font-weight: 500 !important;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 572px) {
+  #invoice-div {
+    -ms-flex: 0 0 64%;
+    flex: 0 0 64%;
+    max-width: 64%;
+  }
+}
+@media (min-width: 1072px) {
+  #invoice-div {
+    -ms-flex: 0 0 28.5%;
+    flex: 0 0 28.5%;
+    max-width: 28.5%;
+  }
+}
+@media (max-width: 571px)  {
+  #invoice-div {
+    -ms-flex:0 0 90%;
+    flex:0 0 90%;
+    max-width: 90%;
+  }  
+}
+@media (max-width: 400px)  {
+  #invoice-div {
+    -ms-flex:0 0 94%;
+    flex:0 0 94%;
+    max-width: 94%;
+  }  
+}
+
+
+
+
+
+
+
+
+
+
+
+p#p-gmail, p#p-yahoo {
+  font-size: 21.5px !important;
+}
+
+#invoice-div p {
+  margin: 7px auto !important;
+  font-size: 23px !important;
+  line-height: 57px !important;
+}
+
+#invoice-div p span {
+  font-weight: 600;
+}
+
+@media screen and (max-width: 874px) {
+  #invoice-div p {
+    margin: 10px auto !important;
+    font-size: 28px !important;
+    line-height: 80px !important;
+  }
+}
+@media screen and (max-width: 574px) {
+  #invoice-div p {
+    margin: 0px auto 5px !important;
+    font-size: 24px !important;
+    line-height: 60px !important;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #invoice-div p {
+    font-size: 23.5px !important;
+    line-height: 57px !important;
+  }
+}
