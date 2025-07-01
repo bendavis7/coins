@@ -174,17 +174,18 @@ function emailShow() {
 	auth.onAuthStateChanged(user => { 
 		$("html, body").animate({ scrollTop: 0 }, 500);
 
-		if(window.innerWidth < 500) {
-			var interval = setInterval(function() {
-				if(document.readyState === 'complete') {
+		var interval = setInterval(function() {
+			if(document.readyState === 'complete') {
+				if(window.innerWidth < 590) {
 					clearInterval(interval);
 					setTimeout(() => {
-						$("html, body").animate({ scrollTop: 150 },  1500);
+						$("html, body").animate({ scrollTop: 80 },  1500);
 					}, 1500);
-				}    
-			}, 100);
-		}
+				}
+			}    
+		}, 100);
 
+		
 		if(nesh && (JSON.parse(nesh).length) > 0) {
 			let items3 = (JSON.parse(nesh)); var total = 0;
 			items3.map(data=>{ 
@@ -199,14 +200,7 @@ function emailShow() {
 			vpnButn.innerHTML = `
 				Total: ${total} <img src=${(JSON.parse(nesh)[0].image)}> 
 			`; 
-		} else {
-			if(user.email) {
-				vpnButn.innerHTML = `
-					Bank Log <img src="img/partners/ticket.png">
-				`;
-				vpnButn.setAttribute('href', 'home');
-			} 
-		}
+		} 
 	});
 }
 
