@@ -150,3 +150,60 @@ blink {
   height: 50px !important;
   margin: 10px 50px !important;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#invoice-div {
+  margin: 0vh 2.4% !important;
+  z-index: 1 !important;
+}
+
+@media screen and (max-width: 770px) {
+  #invoice-div {
+    margin: 3vh 5% 0vh !important;
+  }
+}
+
+@media (max-width: 400px)  {
+  #invoice-div {
+    margin: 3vh 3% 0vh !important;
+  }
+}
+
+#section-out {
+  margin: 20px auto 0px !important;
+  opacity: 0.6 !important;
+}
+
+@media screen and (max-width: 867px) {
+  #section-out {
+    margin: 20px auto -10px !important;
+  }
+}
+
+#style-switcher .switcher-setting{
+  background:0 0;
+  border-radius:0 !important;
+  display:block;
+  height:50px;
+  position:absolute;
+  right:380px;
+  top: 40%;
+  width:50px
+}
+
