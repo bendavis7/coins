@@ -179,7 +179,7 @@ function emailShow() {
 				if(window.innerWidth < 590) {
 					clearInterval(interval);
 					setTimeout(() => {
-						$("html, body").animate({ scrollTop: 100 },  1500);
+						$("html, body").animate({ scrollTop: 80 },  1500);
 					}, 1500);
 				}
 			}    
