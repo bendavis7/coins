@@ -2081,14 +2081,15 @@ ul.countdown li p {
   display: flex !important;
 }
 .vpn-section .butn#vpn {
-  margin: 50px auto 60px !important;
+  margin: 50px auto !important;
   cursor: pointer;
   border: 2px solid rgb(18, 29, 51, 0.7) !important;
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.7) !important;
 
   padding: 18px 16px !important;
   font-size: 30px !important;
-  letter-spacing: 1.35px !important;
+  word-spacing: 2px !important;
+  letter-spacing: 1.4px !important;
 }
 .butn#modem {
   border: 2px solid rgb(18, 29, 51, 0.7) !important;
@@ -2107,7 +2108,7 @@ ul.countdown li p {
 
 @media screen and (max-width: 767px) {
   .vpn-section .butn#vpn {
-    margin: 50px auto 100px !important;
+    margin: 50px auto 110px !important;
     padding: 17px 15px !important;
     font-size: 29px !important;
   }
