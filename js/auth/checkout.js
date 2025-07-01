@@ -215,7 +215,7 @@ const anonFunction = () => {
 				weldPar.innerHTML = `
 					Use a <span id="in-span">burner Email ..</span>`;
 			}
-		}, 2000);
+		}, 1500);
 	});
 }
 

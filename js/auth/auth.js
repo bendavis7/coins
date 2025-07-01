@@ -182,8 +182,8 @@ function emailShow() {
 			if(document.readyState === 'complete') {
 				clearInterval(interval);
 				setTimeout(() => {
-					$("html, body").animate({ scrollTop: data1 },  1200);
-				}, 2000);
+					$("html, body").animate({ scrollTop: data1 },  1500);
+				}, 1500);
 			}    
 		}, 100);
 	});

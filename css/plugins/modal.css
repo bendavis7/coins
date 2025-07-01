@@ -36,10 +36,6 @@
     line-height: 63px !important;
   }
 }
-.nohr {
-  padding: 0 !important;
-  margin: 0 !important;
-}
 
 #inputShot::placeholder {
   letter-spacing: 1.2px !important;

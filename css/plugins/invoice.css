@@ -12,28 +12,18 @@
   margin-top: 14vh;
   z-index: 1 !important;
 }
-#invoice-div-2 {
-  margin-top: 24vh;
-  z-index: 1 !important;
-}
-
 @media screen and (max-width: 770px) {
   #invoice-div {
     margin-top: 13vh;
   }
-  #invoice-div-2 {
-    margin-top: 5vh;
-  }
 }
 
-#invoice-div-2 p,
 #invoice-div p {
   margin: 7px auto !important;
   font-size: 23.5px !important;
   line-height: 57px !important;
 }
 
-#invoice-div-2 p span,
 #invoice-div p span {
   font-weight: 600;
 }
@@ -42,7 +32,6 @@ p#p-gmail, p#p-yahoo {
 }
 
 @media screen and (max-width: 874px) {
-  #invoice-div-2 p,
   #invoice-div p {
     margin: 10px auto !important;
     font-size: 28px !important;
@@ -54,8 +43,7 @@ p#p-gmail, p#p-yahoo {
   }
 }
 @media screen and (max-width: 574px) {
-  #invoice-div p,
-  #invoice-div-2 p {
+  #invoice-div p {
     margin: 10px auto !important;
     font-size: 24px !important;
     line-height: 63px !important;
@@ -67,8 +55,7 @@ p#p-gmail, p#p-yahoo {
 }
 
 @media screen and (max-width: 400px) {
-  #invoice-div p,
-  #invoice-div-2 p {
+  #invoice-div p {
     font-size: 23.5px !important;
     line-height: 60px !important;
   }
@@ -79,7 +66,6 @@ p#p-gmail, p#p-yahoo {
 }
 
 @media (min-width: 572px) {
-  #invoice-div-2.col-12,
   #invoice-div.col-12 {
     -ms-flex: 0 0 64%;
     flex: 0 0 64%;
@@ -87,7 +73,6 @@ p#p-gmail, p#p-yahoo {
   }
 }
 @media (min-width: 1072px) {
-  #invoice-div-2.col-12,
   #invoice-div.col-12 {
     -ms-flex: 0 0 30%;
     flex: 0 0 30%;
@@ -95,7 +80,6 @@ p#p-gmail, p#p-yahoo {
   }
 }
 @media (max-width: 571px)  {
-  #invoice-div-2.col-12,
   #invoice-div.col-12 {
     -ms-flex:0 0 91%;
     flex:0 0 91%;
@@ -103,7 +87,6 @@ p#p-gmail, p#p-yahoo {
   }  
 }
 @media (max-width: 400px)  {
-  #invoice-div-2.col-12,
   #invoice-div.col-12 {
     -ms-flex:0 0 95%;
     flex:0 0 95%;
@@ -111,15 +94,6 @@ p#p-gmail, p#p-yahoo {
   }  
 }
 
-
-.nohr {
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-#inputLife::placeholder {
-  letter-spacing: 1.2px !important;
-}
 
 #the-life {
   border-radius: 0px !important;
@@ -189,6 +163,7 @@ p#p-gmail, p#p-yahoo {
   opacity: 0.6 !important;
 }
 #section-on {
+  margin-top: 70px !important;
   margin-bottom: 30px !important;
   opacity: 0.6 !important;
 }
