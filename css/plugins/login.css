@@ -1,0 +1,166 @@
+#invoice-div {
+  margin-top: 2vh;
+  z-index: 1 !important;
+}
+
+@media screen and (max-width: 770px) {
+  #invoice-div {
+    display: none !important;
+  }
+}
+#invoice-div p {
+  margin: 10px auto !important;
+  font-size: 23px !important;
+  line-height: 55px !important;
+}
+
+#invoice-div p span {
+  font-weight: 600;
+}
+
+@media screen and (max-width: 874px) {
+  #invoice-div p {
+    margin: 10px auto !important;
+    font-size: 28px !important;
+    line-height: 80px !important;
+  }
+}
+@media screen and (max-width: 574px) {
+  #invoice-div p {
+    margin: 10px auto !important;
+    font-size: 23px !important;
+    line-height: 60px !important;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #invoice-div p {
+    font-size: 22.5px !important;
+    line-height: 57px !important;
+  }
+}
+
+@media (min-width: 572px) {
+  #invoice-div.col-md-7 {
+    -ms-flex: 0 0 64%;
+    flex: 0 0 64%;
+    max-width: 64%;
+  }
+}
+@media (min-width: 1072px) {
+  #invoice-div.col-lg-4 {
+    -ms-flex: 0 0 29%;
+    flex: 0 0 29%;
+    max-width: 29%;
+  }
+}
+@media (max-width: 571px)  {
+  #invoice-div.col-12 {
+    -ms-flex:0 0 90%;
+    flex:0 0 90%;
+    max-width: 90%;
+  }  
+}
+@media (max-width: 400px)  {
+  #invoice-div.col-12 {
+    -ms-flex:0 0 94%;
+    flex:0 0 94%;
+    max-width: 94%;
+  }  
+}
+
+.nohr {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+#inputLife::placeholder {
+  letter-spacing: 1.2px !important;
+}
+
+#the-life {
+  border-radius: 0px !important;
+  text-align: center;
+  align-items: center !important;
+  padding: 0px !important;
+
+  display: flex !important;
+  width: 90% !important;
+  height: 64px !important;
+  margin: 9px auto !important;
+}
+
+
+#inputLife {
+  color:  rgb(31, 67, 87) !important;
+  border-radius: 0.1px !important;
+  font-weight: 600 !important;
+  font-size: 24px !important;
+  text-align: center;
+  align-items: center !important;
+
+  padding: 0 8px !important;
+  height: 100% !important;
+  width: 100% !important;
+
+  letter-spacing: 1.5px !important;
+
+  box-shadow: none !important;
+  background: transparent !important;
+  border: none !important;
+}
+@media screen and (max-width: 767px) {
+  #the-life {
+    width: 92% !important;
+    height: 65px !important;
+  }
+  #inputLife {
+    font-size: 23px !important;
+    letter-spacing: 1.2px !important;
+  }
+}  
+@media screen and (max-width: 400px) {
+  #the-life {
+    width: 92% !important;
+    height: 63px !important;
+  }
+  #inputLife {
+    font-size: 22.5px !important;
+  }
+}
+
+#email-phone {
+  margin-top: 30px !important;
+  margin-bottom: 10px !important;
+  cursor: pointer !important;
+  border-radius: 0.5px !important;
+  padding: 10px 12px !important;
+  font-size: 24px !important;
+  letter-spacing: 1.6px !important;
+  border: 2px solid rgb(18, 29, 51, 0.7) !important;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.7) !important;
+}
+#email-phone img {
+  border-radius: 0 !important;
+  height: 33px !important;
+  width: 33px !important;
+}
+#section-we {
+  margin-bottom: 30px !important;
+  opacity: 0.6 !important;    
+}
+#section-me {
+  margin-top: 30px !important;
+  opacity: 0.6 !important;
+}
+
+@media screen and (max-width: 867px) {
+  #email-phone {
+    padding: 11px 13px !important;
+    font-size: 25px !important;
+    letter-spacing: 1.5px !important;  
+
+    margin-top: 35px !important;
+    margin-bottom: 20px !important;
+  }
+}
