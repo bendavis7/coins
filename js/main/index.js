@@ -47,8 +47,7 @@
             slideTransition: 'linear',
             autoplayTimeout: 3000, autoplaySpeed: 15000,
             responsive: {
-                0: {items: 1, margin: 10}, 
-                768: {items: 1.5, margin: 10}, 
+                0: {items: 1, margin: 10}
             }
         });
         
