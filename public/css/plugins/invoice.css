@@ -95,15 +95,6 @@ p#p-gmail, p#p-yahoo {
 }
 
 
-.nohr {
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-#inputLife::placeholder {
-  letter-spacing: 1.2px !important;
-}
-
 #the-life {
   border-radius: 0px !important;
   text-align: center;
