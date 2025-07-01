@@ -214,7 +214,6 @@ function emailPresent() {
 			wildPs.innerHTML = `
 				You're logged in.
 			`;
-			$("html, body").animate({ scrollTop: 150 }, 1500);
 		} else {
 			wildPs.innerHTML = `
 				You're logged in <br>
